@@ -264,3 +264,389 @@ int main()
     }
 }
 
+11.
+#include <stdio.h>
+int main()
+{
+    int a,b;
+    printf("enter number1:");
+    scanf("%d",&a);
+    printf("enter number2:");
+    scanf("%d",&b);
+    printf("before swapping:a=%d b=%d\n",a,b);
+    a=a^b;
+    b=a^b;
+    a=a^b;
+    printf("after swapping:a=%d b=%d",a,b);
+}
+
+12.
+#include <stdio.h>
+int main()
+{
+    int n,a,s,r;
+    printf("enter number1:");
+    scanf("%d",&n);
+    a=n;
+    while(n!=0)
+    {
+        r=n%10;
+        s=s*10+r;
+        n=n/10;
+    }
+    if(a==s)
+    {
+        printf("%d is palindrome",a);
+    }
+    else
+    {
+        printf("%d is not palindrome",a);
+    }
+}
+
+13.
+#include <stdio.h>
+int main()
+{
+    char s[20],ch;
+    int i,count,flag=0;
+    printf("enter a string:");
+    fgets(s,sizeof(s),stdin);
+    printf("enter a char:");
+    ch=getchar();
+    for(i=0;s[i]!='\0';i++)
+    {
+        if(ch==s[i])
+        {
+            count++;
+            flag=1;
+        }
+    }
+    printf("no of char in string:%d\n",count);
+    if(!flag)
+    {
+        printf("not fount");
+    }
+    else
+    {
+        printf("fount");
+    }
+}
+
+14.
+#include <stdio.h>
+int main()
+{
+    char s[20],s1[20],s2[20];
+    int index=0,index1=0;
+    printf("enter a string:");
+    fgets(s,sizeof(s),stdin);
+    for(int i=0;s[i]!='\0';i++)
+    {
+        if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')
+        {
+            s1[index]=s[i];
+            index++;
+        }
+        else
+        {
+            s2[index1]=s[i];
+            index1++;
+        }
+    }
+    printf("vowel:");
+    for(int i=0;s1[i]!='\0';i++)
+    {
+        printf("%c",s1[i]);
+    }
+    printf("\nconst:");
+    for(int i=0;s2[i]!='\0';i++)
+    {
+        printf("%c",s2[i]);
+    }
+}
+
+15.
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+    char s[20];
+    int n,l;
+    printf("enter a string:");
+    fgets(s,sizeof(s),stdin);
+    l=strlen(s);
+    n=l;
+    for(int i=0;i<l;i++)
+    {
+        if(s[i]!='a'&&s[i]!='e'&&s[i]!='i'&&s[i]!='o'&&s[i]!='u')
+        {
+            s[n]=s[i];
+            n++;
+        }
+    }
+    for(int i=l;i<n;i++)
+    {
+        printf("%c",s[i]);
+    }
+}
+
+16.
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+int main()
+{
+    int n,i,pos,item;
+    printf("enter a size:");
+    scanf("%d",&n);
+    int arr[n];
+    printf("enter a element:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("enter a pos:");
+    scanf("%d",&pos);
+    printf("enter a value:");
+    scanf("%d",&item);
+    n=n+1;
+    int j=n-2;
+    while(j>=pos)
+    {
+        arr[j+1]=arr[j];
+        j=j-1;
+    }
+    arr[pos]=item;
+    printf("Table no of order for drinks after:\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d\t%d\n",i+1,arr[i]);
+    }
+}
+
+17.
+#include<stdio.h>
+#include<stdlib.h>
+#define N 1000
+void push();
+void pop();
+void display();
+int top=-1;
+int stack[N];
+int main()
+{
+    int choice;
+    while(1)
+    {
+    printf("enter your choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+        push();
+        break;
+    case 2:
+        pop();
+        break;
+    case 3:
+        display();
+        break;
+    case 4:
+        exit(0);
+        break;
+    default:
+        printf("Invalid choice!!!\n");
+        break;
+    }
+    }
+}
+void push()
+    {
+    if(top==N-1)
+    {
+        printf("\n stack overflow can't add element");
+    }
+    else
+    {
+        int x;
+        printf("enter a element to be push:");
+        scanf("%d",&x);
+        top+=1;
+        stack[top]=x;
+        printf("%d is top most element of the stack\n",stack[top]);
+    }
+    }
+void pop()
+    {
+    if(top==-1)
+    {
+        printf("stack is underflow\n");
+    }
+    else
+    {
+        int x=stack[top];
+        printf("%d popping of element\n",x);
+        top-=1;
+    }
+    }
+void display()
+    {
+    if(top==-1)
+    {
+        printf("Stack is empty.\n");
+    }
+    else
+    {
+        printf("Stack:\n");
+        for(int i=top;i>=0;i--)
+      {
+          printf("%d\n",stack[i]);
+      }
+    }
+    }
+
+18.
+/*#include<stdio.h>
+#include<stdlib.h>
+#define N 1000
+void push();
+void pop();
+void display();
+int top=-1;
+int stack[N];
+int main()
+{
+    int choice;
+    while(1)
+    {
+    printf("enter your choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+        push();
+        break;
+    case 2:
+        pop();
+        break;
+    case 3:
+        display();
+        break;
+    case 4:
+        exit(0);
+        break;
+    default:
+        printf("Invalid choice!!!\n");
+        break;
+    }
+    }
+}
+void push()
+    {
+    if(top==N-1)
+    {
+        printf("\n stack overflow can't add element");
+    }
+    else
+    {
+        int x;
+        printf("enter a element to be push:");
+        scanf("%d",&x);
+        top+=1;
+        stack[top]=x;
+        printf("%d is top most element of the stack\n",stack[top]);
+    }
+    }
+void pop()
+    {
+    if(top==-1)
+    {
+        printf("stack is underflow\n");
+    }
+    else
+    {
+        int x=stack[top];
+        printf("%d popping of element\n",x);
+        top-=1;
+    }
+    }
+void display()
+    {
+    if(top==-1)
+    {
+        printf("Stack is empty.\n");
+    }
+    else
+    {
+        printf("Stack:\n");
+        for(int i=top;i>=0;i--)
+      {
+          printf("%d\n",stack[i]);
+      }
+    }
+    }*/
+#include<stdio.h>
+#include<stdlib.h>
+void push();
+void display();
+struct node
+{
+    int val;
+    struct node* next;
+};
+struct node* head;
+int main()
+{
+    int choice;
+    while(1)
+    {
+    printf("enter your choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+    push();
+    break;
+    case 2:
+    display();
+    break;
+    }
+    }
+}
+void push()
+{
+    int val;
+    struct node* ptr=(struct node*)malloc(sizeof(struct node));
+    printf("enter a val:");
+    scanf("%d",&val);
+    if(head==NULL)
+    {
+        ptr->val=val;
+        ptr->next=NULL;
+        head=ptr;
+    }
+    else
+    {
+        ptr->val=val;
+        head->next=ptr;
+        head=ptr;
+    }
+}
+void display()
+{
+    if(head==NULL)
+    {
+        printf("stack is empty.");
+    }
+    else
+    {
+        while(head)
+    }
+}
